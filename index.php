@@ -12,6 +12,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Sistema de Login</title>
+    <style>
+    #alerta,#caixaSenha,#caixaRegistro{
+        display: none;
+    }
+    </style>
 </head>
 
 <body class="bg-dark">
@@ -56,7 +61,7 @@
                     </div>
                     <div class="form-group">
                         <p class="text-center">
-                            Novo usuário? <a href="#" id="btnRegistrar">
+                            Novo usuário? <a href="#" id="btnRegistrarNOVO">
                                 Registre-se aqui!
                             </a>
                         </p>
@@ -68,7 +73,7 @@
 
         <!-- Formulário de Recuperação de Senha -->
         <section class="row mt-5">
-            <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaLogin">
+            <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaSenha">
                 <h2 class="text-center mt-2">
                     Gerar Nova Senha
                 </h2>
@@ -97,6 +102,74 @@
             </div>
         </section>
         <!-- Fim da Seção de Recuperação de Senha -->
+
+        <!--inicio de formulário de cadastro de novos usuário-->
+
+        <section class="row mt-5">
+            <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaRegistro">
+
+                <h2 class="text-center mt-2">Registrese-se aqui</h2>
+                <form action="#" method="post" class="p-2" id="formRegistro">
+                    <div class="form-group">
+                        <input type="text" name="nomeCompleto" id="nomecompleto" class="form-control" placeholder="Nome Completo">
+
+
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="nomeUsuario" id="nomeUsuario" class="form-control" placeholder="nome de usuario">
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <input type="emil" name="emailUsuario" class="form-control" placeholder="E-mail">
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <input type=password name="senhausuario" id="senhaUsuario" class="form-control" placeholder="senha">
+
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="senhaUsuarioConfirmar" class="form-control" placeholder="Confirmar senha">
+
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" name="concordar" id="concodar" 
+                            class="custom-control-input">
+                            <label for="concordar" class="custom-control-label">
+                                eu concordo com <a href="#"> o termos e condições.</a>
+
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="::Registrar::" name="btnRegistrar" 
+                        id="btnRegistrar" class="btn btn-primary btn-block">
+
+                        <div class="form-group">
+                            <p class="text-center">
+                                Já registrado?
+                                <a href="#" id="btnJaRegistrado2">
+                                    Entrar por aqui.
+                                </a>
+                            </p>
+                        </div>
+
+                </form>
+
+
+
+            </div>
+
+        </section>
+
+
+        <!-- final do formulário do cadastro de novos usuários-->
+
     </main>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

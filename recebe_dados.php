@@ -74,11 +74,24 @@ if (isset($_POST['action'])) {
             }
         }
     } else if ($_POST['action'] == 'login') {
-        //Senão, teste se ação é login
-        echo "\n<p>login</p>";
-        echo "\n<pre>"; //Pre-formatar
-        print_r($_POST);
-        echo "\n<\pre>";
+        $nomeUsuario = verificar_entrada($_POST['nomeCompleto']);
+        $nomeUsuario = verificar_entrada($_POST['nomeCompleto']);
+        $senha=sha1($senhaUsuario);
+
+        $sql =$connect->prepare("SELECT * from usuario WHERE senhaDoUsuario = ? 
+        and nomeDOusuario = ?")
+        $sql->Bind_param("ss",$senha,$nomeUsuario)
+
+        $sql->execute();
+
+        $busca =$sql-->fetch();
+        if($busca =/= null){
+            echo "ok";
+            echo"<p class='text-dange>";
+            echo "falhou a entrada no sistema .Nome de usuario ou senha inválidos";
+            echo "</p>"
+        }
+        
     } else if ($_POST['action'] == 'senha') {
         //Senão, teste se ação é recuperar senha
         echo "\n<p>senha</p>";

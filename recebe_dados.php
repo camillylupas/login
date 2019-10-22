@@ -1,4 +1,6 @@
 <?php
+// inciando a sessão
+session_start();
 //Conexão com o banco de dados
 require_once 'configBD.php';
 function verificar_entrada($entrada)
@@ -86,6 +88,7 @@ if (isset($_POST['action'])) {
 
         $busca =$sql-->fetch();
         if($busca =/= null){
+            $_SESSION['nomeDousuario'] = $nomeDoUsuario;
             echo "ok";
             echo"<p class='text-dange>";
             echo "falhou a entrada no sistema .Nome de usuario ou senha inválidos";

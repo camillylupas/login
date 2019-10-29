@@ -9,8 +9,10 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <title>Sistema de Login</title>
     <link rel="stylesheet" href="https://jqueryvalidation.org/files/demo/site-demos.css">
     <style>
@@ -41,26 +43,39 @@
                     Entrar no Sistema
                 </h2>
                 <form action="#" method="post" class="p-2" id="formLogin">
+
                     <div class="form-group">
-                        <input type="text" name="nomeUsuario" id="nomeUsuario" placeholder="Nome de Usuário" class="form-control" required minlength="5">
+                        <input type="text" name="nomeUsuario" id="nomeUsuario" placeholder="Nome de Usuário" class="form-control" required minlength="5" value="<?=
+                                                                                                                                                                    isset($_COOKIE['nomeDoUsuario']) ? $_COOKIE['nomeDoUsuario'] : "";
+                                                                                                                                                                ?>">
                     </div>
                     <div class="form-group">
-                        <input type="password" name="senhaUsuario" id="senhaUsuario" placeholder="Senha" class="form-control" required minlength="6">
+                        <input type="password" name="senhaUsuario" id="senhaUsuario" placeholder="Senha" class="form-control" required minlength="6" value="<?=
+                                                                                                                                                                isset($_COOKIE['senhaDoUsuario']) ? $_COOKIE['senhaDoUsuario'] : "";
+                                                                                                                                                            ?>">
                     </div>
+
                     <div class="form-group mt-5">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" name="lembrar" id="lembrar" class="custom-control-input">
+
+                            <input type="checkbox" name="lembrar" id="lembrar" class="custom-control-input" <?=
+                                                                                                                isset($_COOKIE['senhaDoUsuario']) ? " checked" : "";
+                                                                                                            ?>>
+
                             <label for="lembrar" class="custom-control-label">
                                 Lembrar de mim.
                             </label>
+
                             <a href="#" class="float-right" id="btnEsqueci">
                                 Esqueci a senha!
                             </a>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <input type="submit" value="::Entrar::" name="btnEntrar" id="btnEntrar" class="btn btn-primary btn-block">
                     </div>
+
                     <div class="form-group">
                         <p class="text-center">
                             Novo usuário? <a href="#" id="btnRegistrarNovo">
@@ -68,10 +83,12 @@
                             </a>
                         </p>
                     </div>
+
                 </form>
             </div>
         </section>
         <!-- Final da Seção de Login-->
+
         <!-- Formulário de Recuperação de Senha -->
         <section class="row mt-5">
             <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaSenha">
@@ -85,12 +102,15 @@
                             seu e-mail. Clique no link gerado.
                         </small>
                     </div>
+
                     <div class="form-group">
                         <input type="email" name="emailGerarSenha" id="emailGerarSenha" class="form-control" placeholder="E-mail de recuperação de senha" required>
                     </div>
+
                     <div class="form-group">
                         <input type="submit" value="::Gerar::" name="btnGerar" id="btnGerar" class="btn btn-primary btn-block">
                     </div>
+
                     <div class="form-group">
                         <p class="text-center">
                             Já registrado?
@@ -103,27 +123,34 @@
             </div>
         </section>
         <!-- Fim da Seção de Recuperação de Senha -->
+
         <!-- Início do formulário de 
         cadastro de novos usuários -->
         <section class="row mt-5">
             <div class="col-lg-4 offset-lg-4 bg-light rounded" id="caixaRegistro">
                 <h2 class="text-center mt-2">Registre-se aqui</h2>
                 <form action="#" method="post" class="p-2" id="formRegistro">
+
                     <div class="form-group">
                         <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control" placeholder="Nome completo" required minlength="6">
                     </div>
+
                     <div class="form-group">
                         <input type="text" name="nomeDoUsuario" id="nomeDoUsuario" class="form-control" placeholder="Nome de usuário" required minlength="5">
                     </div>
+
                     <div class="form-group">
                         <input type="email" name="emailUsuario" id="emailUsuario" class="form-control" placeholder="E-mail" required>
                     </div>
+
                     <div class="form-group">
                         <input type="password" name="senhaDoUsuario" id="senhaDoUsuario" class="form-control" placeholder="Senha" required minlength="6">
                     </div>
+
                     <div class="form-group">
                         <input type="password" name="senhaUsuarioConfirmar" id="senhaUsuarioConfirmar" class="form-control" placeholder="Confirmar senha" required minlength="6">
                     </div>
+
                     <div class="form-group mt-4">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" name="concordar" id="concordar" class="custom-control-input">
@@ -133,9 +160,11 @@
                             </label>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <input type="submit" value="::Registrar::" name="btnRegistrar" id="btnRegistrar" class="btn btn-primary btn-block">
                     </div>
+
                     <div class="form-group">
                         <p class="text-center">
                             Já registrado?
@@ -144,18 +173,85 @@
                             </a>
                         </p>
                     </div>
+
                 </form>
+
             </div>
         </section>
         <!-- Final do formulário de 
         cadastro de novos usuários -->
+
+        <!-- Novo formulário -->
+        <section class="row mt-3">
+            <div class="col-lg-6 offset-lg-3">
+                <h1 class="text-center bg-info text-light rounded">
+                    Novo Formulário HTML
+                </h1>
+                <form action="cadastro.php" method="post">
+                    <div class="form-group">
+                        <label for="nomeCompleto">NomeCompleto</label>
+                        <input type="text" name="nomeCompleto" id="nomeCompleto" required placeholder="digite o seu nome Completo" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" id="nomeCompleto" required placeholder="digite o seu email" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dataNiver">data de Aniversario</label>
+                        <input type="date" name="dataNiver" id="dataNiver" required placeholder="dataNiver" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="urlface">perfil do fecebook</label>
+                        <input type="url" name="urlFace" id="urlface" required placeholder="página do perfil do Face" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="urlImagem">Imagem de perfil</label>
+                        <input type="urlImagem" name="urlImagem" id="urlImagem" required placeholder="URL da imagem do seu perfil" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="estado">Estado</label>
+                        <select class="form-control" name="estado" id="estado">
+                            <option></option>
+                            <option value="PR">paraná</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="SC">Santa Catarina</option>
+                        </select>
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cidade">cidade</label>
+                        <select class="form-control" name="cidade" id="cidade">
+                            <option></option>
+                            <option value="Brusque">Brusque</option>
+                            <option value="Guabiruba">Guabiruba</option>
+                            <option value="Itajai">Itajai</option>
+                            <option value="Gaspar">Gaspar</option>
+                            <option value="Botuverá">Botuverá</option>
+
+                        </select>
+
+
+                    </div>
+                    </section>
+                    <!--Final do formulário
+
+
     </main>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
     <script>
         //Código jQuery para mostrar e ocultar os formulários
         $(function() {
@@ -222,7 +318,12 @@
                         data: $("#formLogin").serialize() + '&action=login',
                         success: function(resposta) {
                             $("#alerta").show();
-                            $(".resultado").html(resposta);
+                            //$(".resultado").html(resposta);
+                            if (resposta === "ok") {
+                                window.location = "perfil.php";
+                            } else {
+                                $(".resultado").html(resposta);
+                            }
                         }
                     });
                 }
@@ -275,3 +376,4 @@
 </body>
 
 </html>
+© 2019 GitHub, Inc.

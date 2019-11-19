@@ -1,4 +1,4 @@
-?php
+<?php
 //Iniciando a sessão
 session_start();
 //Conexão com o banco de dados
